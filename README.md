@@ -1,25 +1,22 @@
-# README
+Setup:
+  - rails db:create
+  - rails db:migrate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run
+  - Run aplication: rails s 
+  - Run test: rails rspec
 
-Things you may want to cover:
+Files to test:
 
-* Ruby version
+- Case 1: 
+  - header: name,birthdate,phone,address,credit_card_number,email
+  - path: /csv_files/same_order_to_columns.csv
 
-* System dependencies
 
-* Configuration
+- Case 2:
+    - header: birthdate,name ,last_name,cellphone,age,sex,card_number,email,approved,address
+    - path: /csv_files/same_order_to_columns.csv
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+TODO:
+  - Encrypt
+  - Sidekiq

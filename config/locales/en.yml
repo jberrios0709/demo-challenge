@@ -30,4 +30,5 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  invalid_login: "Username or password incorrect. Please try again."
+  logout: 'Logged out!'

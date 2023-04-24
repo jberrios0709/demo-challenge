@@ -1,0 +1,6 @@
+<div class="form-group">
+  <%= locals[:f].label(locals[:input_id]) %>
+  <%= locals[:f].select locals[:input_id],
+               options_for_select(locals[:options], params[:area]),
+               {}, { class: 'form-control' } %>
+</div>

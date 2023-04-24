@@ -1,0 +1,18 @@
+<%= render 'shared/menu', locals: { page: 'errors' } %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Error</th>
+    <th scope="col">Row</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @error_logs.each do |f| %>
+    <tr>
+      <td><%= f.message %></td>
+      <td><%= f.row %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

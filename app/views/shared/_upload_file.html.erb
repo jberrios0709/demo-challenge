@@ -1,0 +1,58 @@
+<div class="container">
+  <% if !@csv_file&.header.present? %>
+  <div class="row">
+    <%= form_tag("/system/upload_file/header", method: "get") do %>
+      <div class="col-sm">
+        <div class="form-group">
+          <%= label_tag(:header, 'CSV head (separate by comma)') %>
+          <%= text_field_tag(:header, '', class: 'form-control')%>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <%= submit_tag('Cargar', class: 'btn btn-primary') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+  <% if @csv_file&.header.present? %>
+    <div class="row">
+      <%= form_with model: @csv_file, url: upload_file_path do |f| %>
+
+        <div class="form-group">
+          <%= f.label(:header, 'CSV head (separate by comma)') %>
+          <%= f.text_field(:header, value: @csv_file.header, class: 'form-control')%>
+        </div>
+
+        <div class="form-group">
+          <div class="alert alert-primary" role="alert">
+            Please select the columns that match. All are required!
+          </div>
+        </div>
+
+        <% options = @csv_file.header.split(',').each_with_index.to_a.unshift(['Please select one!', '']) %>
+
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :name, options: options}%>
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :birthdate, options: options}%>
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :phone, options: options}%>
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :address, options: options}%>
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :credit_card_number, options: options}%>
+        <%= render 'shared/headers_options', locals: { f: f, input_id: :email, options: options}%>
+
+        <div class="form-group">
+          <%= f.label(:File, 'CSV File') %>
+          <%= f.file_field(:file)%>
+        </div>
+
+        <%= f.submit 'Upload', class: 'btn btn-primary' %>
+        <%= link_to "Return", upload_file_path %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% @csv_file.errors.full_messages.each do |error| %>
+    <label class="text-danger"><%= error %></label>
+  <% end %>
+</div>

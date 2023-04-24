@@ -1,0 +1,28 @@
+<%= render 'shared/menu', locals: { page: 'contacts' } %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Birthdate</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Address</th>
+    <th scope="col">Credit Card Number</th>
+    <th scope="col">Credit Card Network</th>
+    <th scope="col">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @contacts.each do |f| %>
+    <tr>
+      <td><%= f.name %></td>
+      <td><%= f.birthdate %></td>
+      <td><%= f.phone %></td>
+      <td><%= f.address %></td>
+      <td><%= f.credit_card_number %></td>
+      <td><%= f.credit_card_network %></td>
+      <td><%= f.email %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

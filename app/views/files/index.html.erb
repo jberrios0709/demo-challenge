@@ -1,0 +1,23 @@
+<%= render 'shared/menu', locals: { page: 'history_files' } %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Header</th>
+    <th scope="col">Status</th>
+    <th scope="col">Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @files.each do |f| %>
+    <tr>
+
+      <th scope="row"><%= f.id %></th>
+      <td><%= f.header %></td>
+      <td><%= f.status %></td>
+      <td>@<%= f.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
