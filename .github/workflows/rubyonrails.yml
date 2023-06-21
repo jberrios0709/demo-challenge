@@ -16,6 +16,8 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: demo-challenge
+          MYSQL_USER: demo
+          MYSQL_PASSWORD: demo-challenge
         ports: ["3306:3306"]
         options: >-
           --health-cmd="mysqladmin ping"
@@ -33,7 +35,7 @@ jobs:
         env:
           DB_PORT: 3306
           RAILS_ENV: test
-          
+
       - name: Exec test with rspec
         run: bundle exec rspec spec
         env:
