@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_24_025109) do
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.string "birthdate"
     t.string "phone"
@@ -19,33 +19,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_025109) do
     t.string "credit_card_number"
     t.string "credit_card_network"
     t.string "email"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "csv_files", force: :cascade do |t|
+  create_table "csv_files", charset: "latin1", force: :cascade do |t|
     t.string "path", null: false
     t.integer "status"
     t.text "header"
     t.text "mapping", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_csv_files_on_user_id"
   end
 
-  create_table "error_logs", force: :cascade do |t|
+  create_table "error_logs", charset: "latin1", force: :cascade do |t|
     t.text "message"
     t.text "row"
-    t.integer "csv_file_id"
+    t.bigint "csv_file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["csv_file_id"], name: "index_error_logs_on_csv_file_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "latin1", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", null: false

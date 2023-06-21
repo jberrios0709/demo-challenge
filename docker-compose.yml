@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo-challenge
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: demo-challenge
+    ports:
+      - "3307:3306"
+  app:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ".:/app"
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      DB_USERNAME: demo
+      DB_NAME: demo-challenge
+      DB_PASSWORD: demo-challenge
+      DB_HOST: db
