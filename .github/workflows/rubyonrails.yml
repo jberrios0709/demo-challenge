@@ -30,7 +30,10 @@ jobs:
 
       - name: Prepare database
         run: bundle exec rails db:prepare
-
+        env:
+          DB_PORT: 3306
+          RAILS_ENV: test
+          
       - name: Exec test with rspec
         run: bundle exec rspec spec
         env:
