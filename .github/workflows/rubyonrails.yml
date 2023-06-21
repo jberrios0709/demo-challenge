@@ -16,8 +16,7 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: demo-challenge
-        ports:
-          - ["3306:3306"]
+        ports: ["3306:3306"]
         options: >-
           --health-cmd="mysqladmin ping"
           --health-interval=10s
@@ -31,7 +30,7 @@ jobs:
 
       - name: Prepare database
         run: bundle exec rails:db prepare
-        
+
       - name: Exec test with rspec
         run: bundle exec rspec spec
         env:
