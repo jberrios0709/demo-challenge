@@ -23,15 +23,12 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-    jobs:
-      test:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v3
-          - uses: ruby/setup-ruby@v1
-            with:
-              bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          - run: bundle exec rspec
-            env:
-              DB_PORT: 3306
-              RAILS_ENV: test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - run: bundle exec rspec
+        env:
+          DB_PORT: 3306
+          RAILS_ENV: test
