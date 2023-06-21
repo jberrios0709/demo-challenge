@@ -15,7 +15,7 @@ test:
   database: 'demo-challenge'
   <% if ENV['CI'] %>
   host: 127.0.0.1
-  port: <%= ENV['DB_PORT'] %>
+  port: 3306
   <% end %>
 
 production:
