@@ -13,6 +13,10 @@ development:
 test:
   <<: *default
   database: 'demo-challenge'
+  <% if ENV['CI'] %>
+  host: 127.0.0.1
+  port: <%= ENV['DB_PORT'] %>
+  <% end %>
 
 production:
   <<: *default
