@@ -13,7 +13,8 @@ services:
       - "3307:3306"
   app:
     platform: linux/x86_64
-    image: "joseberrios/demo-challenge:latest"
+    build:
+      context: .
     restart: always
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
@@ -27,3 +28,4 @@ services:
       DB_NAME: demo-challenge
       DB_PASSWORD: demo-challenge
       DB_HOST: db
+      DB_PORT: 3307

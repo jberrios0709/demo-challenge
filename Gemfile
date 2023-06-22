@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 gem 'i18n', '~> 1.12'
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'email_validator', '~> 2.2', '>= 2.2.4'
+#gem "therubyracer"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -3,7 +3,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch('DB_USERNAME') { 'demo' } %>
   password: <%= ENV.fetch('DB_PASSWORD') { 'demo-challenge' } %>
-  host: <%= ENV.fetch('DB_HOST') { '0.0.0.0' } %>
+  host: <%= ENV.fetch('DB_HOST') { '127.0.0.1' } %>
   port: <%= ENV.fetch('DB_PORT') { '3307' } %>
 
 development:
