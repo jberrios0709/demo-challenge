@@ -1,15 +1,14 @@
-## DESARROLLO LOCAL
+## Setup and test
 
 El siguiente demo es un exportador de contactos dinamico con el cual un usuario puede cargar diferentes tipos de CSV, definir el esquemay hacer match contra los campos necesarios y se procede a importar los datos.
 
 Setup:
-  - rails db:create
-  - rails db:migrate
+  - docker-compose exec app bundle exec rake db:setup db:migrate
 
-Run
-  - Run aplication: rails s 
-  - Run test: rails rspec
+Run test
+  - docker-compose exec app bundle exec rspec spec
 
+## Test in WEB
 Files to test:
 
 - Case 1: 
